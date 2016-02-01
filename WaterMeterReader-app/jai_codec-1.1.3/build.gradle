@@ -1,0 +1,4 @@
+configurations.create("default")
+artifacts.add("default", file('jai_codec-1.1.3.jar'))
+dependencies {
+}

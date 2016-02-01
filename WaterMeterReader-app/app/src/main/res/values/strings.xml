@@ -1,0 +1,135 @@
+<resources>
+    <!-- *** names *** -->
+    <string name="app_name">MeteRead</string>
+    <string name="app_name2">ShowHowWorks</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- *** languages *** -->
+
+    <!-- english -->
+    <string name="eng_sms_meterid">MeterId:</string>
+    <string name="eng_sms_date">Date:</string>
+    <string name="eng_sms_sent">Sent:</string>
+    <string name="eng_sms_whatreaded">Read number:</string>
+    <string name="eng_phonehint">Enter phone number here</string>
+    <string name="eng_takephoto">Take a photo</string>
+    <string name="eng_choosefile">Choose file</string>
+    <string name="eng_advancedsettings">Advanced settings</string>
+    <string name="eng_stepbystep">visual step by step</string>
+    <string name="eng_redandsend">Read and Send to phone</string>
+    <string name="eng_languagetitle">Languages</string>
+
+    <string name="eng_prerotate">Photo Pre Potate</string>
+    <string name="eng_postrotate">Photo Post Rotate</string>
+    <string name="eng_postcut">Photo Post Cut</string>
+    <string name="eng_idsettings">ID Settings</string>
+
+    <string name="eng_picsize">picture scaled under this max pixels size(change not apply instantly,must reselect photo)</string>
+    <string name="eng_dilate">Dilate</string>
+    <string name="eng_erode">Erode</string>
+    <string name="eng_numofcandidates">number of candidate lines</string>
+    <string name="eng_linesgap">lines gap higher than % of pic height</string>
+    <string name="eng_linefill">fill size of the found lines</string>
+    <string name="eng_mingapprec">clean noise height(gap of both lines) smaller than</string>
+    <string name="eng_maxgapprec">clean noise height(gap of both lines) higher than</string>
+    <string name="eng_minpixelprec">clean noise that pixel amount smaller than</string>
+    <string name="eng_maxpixelprec">clean noise that pixel amount higher than</string>
+    <string name="eng_ocrpicsize">picture size sended to ocr</string>
+    <string name="eng_idlinessize">lines fill size in top and bottom of picture</string>
+
+    <string name="eng_restoredefault">Restore Default</string>
+    <string name="eng_savesetting">Save Settings</string>
+    <string name="eng_idcrop">Crop the ID</string>
+
+    <string name="eng_language">Language</string>
+    <string name="eng_english">English</string>
+    <string name="eng_hebrew">Hebrew</string>
+    <string name="eng_russian">Russian</string>
+
+    <!-- english end -->
+
+    <!-- hebrew -->
+    <string name="heb_sms_meterid">מספר מזהה:</string>
+    <string name="heb_sms_date">תאריך:</string>
+    <string name="heb_sms_sent">זמן שליחה:</string>
+    <string name="heb_sms_whatreaded">המד:</string>
+    <string name="heb_phonehint">הקלט מספר טלפון רצוי</string>
+    <string name="heb_takephoto">לקחת תמונה</string>
+    <string name="heb_choosefile">לבחור קובץ</string>
+    <string name="heb_advancedsettings">הגדרות מורכבות</string>
+    <string name="heb_stepbystep">הצגה צעד אחר צעד</string>
+    <string name="heb_redandsend">לקרוא ולשלוח לטלפון</string>
+    <string name="heb_languagetitle">שפות</string>
+
+    <string name="heb_prerotate">לפני סיבוב התמונה</string>
+    <string name="heb_postrotate">לאחר סיבוב התמונה</string>
+    <string name="heb_postcut">לאחר חיתוך</string>
+    <string name="heb_idsettings">הגדרות מספר מזהה</string>
+
+    <string name="heb_picsize">מספר פיקסלים מקסימלי לתמונה (ליישום השינוי נדרש לבחור בתמונה לאחר מכן)</string>
+    <string name="heb_dilate">להרחיב</string>
+    <string name="heb_erode">לצמצם</string>
+    <string name="heb_numofcandidates">מספר הקווים המועמדים</string>
+    <string name="heb_linesgap">המרחק בין הקווים גדול ממספר אחוזי גובה התמונה</string>
+    <string name="heb_linefill">גודל צביעת הקווים שנמצאו</string>
+    <string name="heb_mingapprec">ניקוי רעשים שגובהם קטן מ(באחוזים)-</string>
+    <string name="heb_maxgapprec">ניקוי רעשים שגובהם גדול מ(באחוזים)-</string>
+    <string name="heb_minpixelprec">ניקוי רעשים שאחוז הפיקסלים באיבר הנתון קטן מ-</string>
+    <string name="heb_maxpixelprec">ניקוי רעשים שאחוז הפיקסלים באיבר הנתון גדול מ-</string>
+    <string name="heb_ocrpicsize">גודל התמונה הנשלחת ל- OCR</string>
+    <string name="heb_idlinessize">גודל מילוי קווים תחתי ועליון של התמונה</string>
+
+    <string name="heb_restoredefault">שיחזור ברירת מחדל</string>
+    <string name="heb_savesetting">שמירת הגדרות</string>
+    <string name="heb_idcrop">לחתוך מספר מזהה</string>
+
+    <string name="heb_language">שפה</string>
+    <string name="heb_english">אנגלית</string>
+    <string name="heb_hebrew">עברית</string>
+    <string name="heb_russian">רוסית</string>
+
+    <!-- hebrew end -->
+
+    <!-- russian -->
+    <string name="rus_sms_meterid">идентификатор:</string>
+    <string name="rus_sms_date">дата:</string>
+    <string name="rus_sms_sent">время:</string>
+    <string name="rus_sms_whatreaded">номер:</string>
+    <string name="rus_phonehint">вставить номер телефона</string>
+    <string name="rus_takephoto">взять фотографию</string>
+    <string name="rus_choosefile">выбрать фаил</string>
+    <string name="rus_advancedsettings">расширенные настройки</string>
+    <string name="rus_stepbystep">показать шаг за шагом</string>
+    <string name="rus_redandsend">прочить и послать</string>
+    <string name="rus_languagetitle">языки</string>
+
+    <string name="rus_prerotate">перед поворотом фотографии</string>
+    <string name="rus_postrotate">после поворота фотографии</string>
+    <string name="rus_postcut">после разреза фотографии</string>
+    <string name="rus_idsettings">настройки идентификатор</string>
+
+    <string name="rus_picsize">максимальный размер фотографии(оформление завершается после выбора фотографии)</string>
+    <string name="rus_dilate">расширяться</string>
+    <string name="rus_erode">уменьшаться</string>
+    <string name="rus_numofcandidates">число кандидатов линии</string>
+    <string name="rus_linesgap">процентных линии разрыва</string>
+    <string name="rus_linefill">размер заполнение линий</string>
+    <string name="rus_mingapprec">фильтрация шума по высоте (разрыв обеих линий) меньше, чем</string>
+    <string name="rus_maxgapprec">фильтрация шума по высоте (разрыв обеих линий) больше, чем</string>
+    <string name="rus_minpixelprec">фильтрация шума по пиксилям меньше, чем</string>
+    <string name="rus_maxpixelprec">фильтрация шума по пиксилям больше, чем</string>
+    <string name="rus_ocrpicsize">Размер изображения переданы на OCR</string>
+    <string name="rus_idlinessize">заполнить сверху и снизу картинки</string>
+
+    <string name="rus_restoredefault">вернуть оригинальные настройки</string>
+    <string name="rus_savesetting">сохранение настроек</string>
+    <string name="rus_idcrop">обрезать идентификатор</string>
+
+    <string name="rus_language">язык</string>
+    <string name="rus_english">английский</string>
+    <string name="rus_hebrew">иврит</string>
+    <string name="rus_russian">русский</string>
+
+    <!-- russian end -->
+
+</resources>

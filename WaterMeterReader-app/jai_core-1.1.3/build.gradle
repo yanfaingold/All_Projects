@@ -1,0 +1,4 @@
+configurations.create("default")
+artifacts.add("default", file('jai_core-1.1.3.jar'))
+dependencies {
+}
