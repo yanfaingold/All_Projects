@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="App" >
+<head>
+  <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title>Todos $http</title>
+   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.write("<base href=\"" + document.location + "\" />");</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="TodoCtrl">
+ <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">My first app with ionic</h1>
+      </ion-header-bar>
+      <ion-content>
+	  <ion-scroll direction = "xy">
+<div id="allbuttons">
+    <button ng-repeat="todo in todos" class="button button-block button-calm" id="{{todo.question_title}}" value="{{todo.id}}" onclick="myFunction(this.id,this.value)">
+      {{todo.question_title}}
+    </button>
+	</div>
+<div id="all"
+	<h4><p id="theid"></p></h4>
+<h3><p id="thequestion"></p></h3>
+</div>
+</ion-scroll>
+        </ion-content>
+    </ion-pane>
+</body>
+</html>
