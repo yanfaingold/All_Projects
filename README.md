@@ -2,7 +2,8 @@
 all the -jar projects have an executable jar file you can double click to lunch, ExcelToWordChart and ExcelToJavaTable both have a few excel table samples in ExcelFilesForTesting.
 
 WaterMeterReader:
-"history" = college final project, given time- 6 months give or take.
+
+"history" = college final project, given time - 6 months give or take.
 
 brief task summery = reading a water meter photo number and sending it to a given phone by SMS.
 
@@ -13,3 +14,12 @@ in depth explanation = importing external library called OpenCV(for image proces
 main problems = unknown input which means we dont know the size or location of the numbers , hell we dont even know if the photo contains any numbers , another problem is the size of the photo can easily create out of memory error in android.
 
 solution = the added settings can be adjusted for unique input , for the size problem we made it to preload in a settings size and in case of an error we catch it and load in a lower size until it works.
+
+The Game:
+
+"history" = college java course final project, given time - 1 month.
+
+brief task summery = create a java game which contains a ship and meteors of 2 kinds(one of them is red) , you are given 10 shots and to win the game you need to survive 10 minutes while destroying all the red meteors, failure happens if a red meteor fall or if the ship gets hit by a meteor.
+
+in depth explanation = the meteors and ship are pictures or gif files and by using each picture width and height at certain point its drawen(frame) you can see if they collide so using that you can know if ship got hit or if your shot hit a meteor and have a response accordingly , regarding the speed and angle the meteors are falling i used random number generater and to set a start point to the meteors i used random number%screen width-meteor size this way it guarantee that each meteor location will be within screen width and since the red meteors needs to be destroyed i made it bounce if it hits a wall so you will have to destroy them.
+
