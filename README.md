@@ -19,7 +19,7 @@ The Game:
 
 "history" = college java course final project, given time - 1 month.
 
-brief task summery = create a java game which contains a ship and meteors of 2 kinds(one of them is red) , you are given 10 shots and to win the game you need to survive 10 minutes while destroying all the red meteors, failure happens if a red meteor fall or if the ship gets hit by a meteor.
+brief task summery = create a java game which contains a ship and meteors of 2 kinds(one of them is red) , you are given 10 shots and to win the game you need to survive 3 minutes while destroying all the red meteors, failure happens if a red meteor fall or if the ship gets hit by a meteor.
 
-in depth explanation = the meteors and ship are pictures or gif files and by using each picture width and height at certain point its drawen(frame) you can see if they collide so using that you can know if ship got hit or if your shot hit a meteor and have a response accordingly , regarding the speed and angle the meteors are falling i used random number generater and to set a start point to the meteors i used random number%screen width-meteor size this way it guarantee that each meteor location will be within screen width and since the red meteors needs to be destroyed i made it bounce if it hits a wall so you will have to destroy them.
+in depth explanation = the meteors and ship are pictures or gif files and by using each picture width and height at certain point its drawen(frame) you can see if they collide so using that you can know if ship got hit or if your shot hit a meteor and have a response accordingly , regarding the speed and angle of the meteors, i used random number generater to set a start point to the meteors, i used random number%screen width-meteor size this way it guarantee that each meteor location will be within screen width and since the red meteors needs to be destroyed i made it bounce if it hits a wall so you will have to destroy them.
 
