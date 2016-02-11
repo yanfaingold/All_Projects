@@ -17,7 +17,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 • ExcelToJavaTable/ExcelToWordChart:
 
-- "history" = given to me by a certain CEO.
+- "history" = given to me by a certain CEO , project took 1 day.
 
 - user options = select the excel file , set the chart size , set the name of the word file that recieves the chart.
 
