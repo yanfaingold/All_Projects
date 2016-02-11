@@ -23,7 +23,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - brief task summery = 1st task was to read an excel file into a table in java, 2nd task was to read the excel table into a chart inside word.
 
-- in depth explanation = importing external library called Apache POI(to read excel data) and JFreeChart(to use an already existing chart) , create 2 lists that only save title cells(1st row horizontally and vertically, will help me to know the size of the table) and also check that the table is indeed a table(same amount of rows) , extract the actual data from the table into a 2 dimensional array(numbers for the chart) , import the data(from lists and the array) into the ready chart(if its the the ExcelToJavaTable we put the data into a JTable and here it ends) , create a png file of the chart with the user selected size , import the png file into a word file that the user will name.
+- in depth explanation = importing external library called Apache POI(to read excel data) and JFreeChart(to use an already existing chart) , the 1st cell selected as title , create 2 lists that only save title cells(1st row horizontally and vertically, will help me to know the size of the table) and also check that the table is indeed a table(same amount of rows) , extract the actual data from the table into a 2 dimensional array(numbers for the chart) , import the data(from lists and the array) into the ready chart(if its the the ExcelToJavaTable we put the data into a JTable and here it ends) , create a png file of the chart with the user selected size , import the png file into a word file that the user will name.
 
 • The Game:
 
