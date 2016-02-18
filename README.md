@@ -18,9 +18,9 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - solution = the added settings can be adjusted for unique input , for the size problem we made it to preload in a settings size and in case of an error we catch it and load in a lower size until it works.
 
+----------
 
-
-----------**ExcelToJavaTable/ExcelToWordChart**
+**ExcelToJavaTable/ExcelToWordChart**
 -------------
 
 - youtube demo = https://youtu.be/lZYHw4c2hCw
