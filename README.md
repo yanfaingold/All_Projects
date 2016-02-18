@@ -1,9 +1,9 @@
 # All_Projects
 all the -jar projects have an executable jar file you can double click to lunch, ExcelToWordChart and ExcelToJavaTable both have a few excel table samples in ExcelFilesForTesting.
 
+----------
 
-
-----------**WaterMeterReader**
+**WaterMeterReader**
 -------------
 
 - "history" = college final project, given time - 6 months give or take.
@@ -34,8 +34,9 @@ all the -jar projects have an executable jar file you can double click to lunch,
 - in depth explanation = importing external library called Apache POI(to read excel data) and JFreeChart(to use an already existing chart) , the 1st cell selected as title , create 2 lists that only save title cells(1st row horizontally and vertically, will help me to know the size of the table) and also check that the table is indeed a table(same amount of rows) , extract the actual data from the table into a 2 dimensional array(numbers for the chart) , import the data(from lists and the array) into the ready chart(if its the ExcelToJavaTable we put the data into a JTable and here it ends) , create a png file of the chart with the user selected size , import the png file into a word file that the user will name.
 
 
+----------
 
-----------**The Game**
+**The Game**
 -------------
 
 - youtube demo = https://youtu.be/I9tt_nPn9Kc
@@ -47,8 +48,9 @@ all the -jar projects have an executable jar file you can double click to lunch,
 - in depth explanation = the meteors and ship are pictures or gif files and by using each picture width and height at certain point its drawen(frame) you can see if they collide so using that you can know if ship got hit or if your shot hit a meteor and have a response accordingly , regarding the speed and angle of the meteors, i used random number generater to set a start point to the meteors, i used random number%screen width-meteor size this way it guarantee that each meteor location will be within screen width and since the red meteors needs to be destroyed i made it bounce if it hits a wall so you will have to destroy them.
 
 
+----------
 
-----------**Backend-Django_Frontend-ionic**
+**Backend-Django_Frontend-ionic**
 -------------
 
 - youtube demo = https://youtu.be/pKsXZWUwESc
