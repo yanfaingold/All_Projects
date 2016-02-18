@@ -1,7 +1,8 @@
 # All_Projects
 all the -jar projects have an executable jar file you can double click to lunch, ExcelToWordChart and ExcelToJavaTable both have a few excel table samples in ExcelFilesForTesting.
 
-• WaterMeterReader:
+**WaterMeterReader**
+-------------
 
 - "history" = college final project, given time - 6 months give or take.
 
