@@ -93,7 +93,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     //what i need
     static Uri capturedImageUri = null;
     boolean phototaken = false,opencvloaded = false,dialogactive = false;
-    Bitmap cameraphoto = null, originalcopy = null,idphoto=null;
+    Bitmap cameraphoto = null, originalcopy = null;
     //can change in gui settings
     int MAX_PICTURE_SIZE,PRE_DILATE_SIZE,PRE_ERODE_SIZE,NUM_OF_CANDIDATES,LINES_GAP, DILATE_SIZE, ERODE_SIZE, LINES_FOUND_DRAW_SIZE, CLEAN_LOWER_GAP_PRECENTAGE, CLEAN_HIGHER_GAP_PRECENTAGE, CLEAN_LOWER_TOTAL_PIXEL_PRECENTAGE, CLEAN_HIGHER_TOTAL_PIXEL_PRECENTAGE,OCR_PICTURE_SIZE;
     int ID_LINES_SIZE,ID_PICTURE_SIZE;
@@ -228,43 +228,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
 
-        File focrpicsize = new File("/data/data/com.domproject.app.myapplication/shared_prefs/ocrpicsize.xml");
-        if (focrpicsize.exists()) {
-            prefs = getApplicationContext().getSharedPreferences("ocrpicsize", 1);
-
-            OCR_PICTURE_SIZE = prefs.getInt("savedocrpicsize", -1);
-
-        }
-
-        //id loads
-        File fidlinessize = new File("/data/data/com.domproject.app.myapplication/shared_prefs/idlinessize.xml");
-        if (fidlinessize.exists()) {
-            prefs = getApplicationContext().getSharedPreferences("idlinessize", 1);
-
-            ID_LINES_SIZE = prefs.getInt("savedidlinessize", -1);
-
-        }
-        File fiddilate = new File("/data/data/com.domproject.app.myapplication/shared_prefs/iddilate.xml");
-        if (fiddilate.exists()) {
-            prefs = getApplicationContext().getSharedPreferences("iddilate", 1);
-
-            ID_DILATE = prefs.getFloat("savediddilate", -1);
-
-        }
-        File fiderode = new File("/data/data/com.domproject.app.myapplication/shared_prefs/iderode.xml");
-        if (fiderode.exists()) {
-            prefs = getApplicationContext().getSharedPreferences("iderode", 1);
-
-            ID_ERODE = prefs.getFloat("savediderode", -1);
-
-        }
-        File fidpicsize = new File("/data/data/com.domproject.app.myapplication/shared_prefs/idpicsize.xml");
-        if (fidpicsize.exists()) {
-            prefs = getApplicationContext().getSharedPreferences("idpicsize", 1);
-
-            ID_PICTURE_SIZE = prefs.getInt("savedidpicsize", -1);
-
-        }
         //create folders
         createmainfolders();
 
@@ -302,8 +265,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         three.setOnClickListener(this);
         Button four = (Button) findViewById(R.id.button4);
         four.setOnClickListener(this);
-        Button five = (Button) findViewById(R.id.button5);
-        five.setOnClickListener(this);
         Button six = (Button) findViewById(R.id.button6);
         six.setOnClickListener(this);
 
@@ -332,7 +293,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 two.setText(R.string.eng_redandsend);
                 three.setText(R.string.eng_choosefile);
                 four.setText(R.string.eng_advancedsettings);
-                five.setText(R.string.eng_idcrop);
+
                 six.setText(R.string.eng_stepbystep);
 
                 break;
@@ -346,9 +307,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 two.setText(R.string.heb_redandsend);
                 three.setText(R.string.heb_choosefile);
                 four.setText(R.string.heb_advancedsettings);
-                five.setText(R.string.heb_idcrop);
-                float sizeidcropheb=five.getTextSize();
-                five.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeidcropheb - 10);
                 six.setText(R.string.heb_stepbystep);
 
                 break;
@@ -366,9 +324,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 float sizechoosefile=three.getTextSize();
                 three.setTextSize(TypedValue.COMPLEX_UNIT_PX,sizechoosefile-10);
                 four.setText(R.string.rus_advancedsettings);
-                five.setText(R.string.rus_idcrop);
-                float sizeidcroprus=five.getTextSize();
-                five.setTextSize(TypedValue.COMPLEX_UNIT_PX, sizeidcroprus - 13);
                 six.setText(R.string.rus_stepbystep);
 
                 break;
@@ -711,15 +666,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         new Thread(new Runnable() {
                             public void run() {
                                 cameraphoto = originalcopy;
-                                //get bitmap
-                                try {
-                                    idphoto = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/id.png");
-                                }catch(Exception e){
 
-                                }
                                 inputvalidstartalgoritm();
-                                if(idphoto!=null)
-                                idcleanalgoritm();
+
 
                                 sendOCRtoread(phonenumber);
                                 loading.dismiss();
@@ -745,13 +694,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     dialogactive=true;
                     openalertsettings();
 
-                    break;
-                case R.id.button5:
-                    dialogactive=true;
-                    Intent i = new Intent(this, CropActivity.class);
-                    i.putExtra("whichfiletosave", 1);
-                    startActivityForResult(i, 3);
-                    dialogactive=false;
                     break;
                 case R.id.button6:
                     dialogactive=true;
@@ -799,40 +741,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 
-    private void idcleanalgoritm() {
 
-        idphoto=idphoto.copy(Bitmap.Config.ARGB_8888, true);
-        //canny
-        Mat idmat=new Mat();
-        Mat temp = new Mat();
-        Utils.bitmapToMat(idphoto, idmat);
-        Imgproc.cvtColor(idmat, idmat, Imgproc.COLOR_RGB2GRAY);
-        double otsu_thresh_val = Imgproc.threshold(idmat, temp, 0, 255, Imgproc.THRESH_BINARY | Imgproc.THRESH_OTSU);
-        double high_thresh_val = otsu_thresh_val;
-        double lower_thresh_val = otsu_thresh_val * 0.5;
-
-        Imgproc.Canny(idmat, idmat, lower_thresh_val, high_thresh_val);
-        Imgproc.dilate(idmat, idmat, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(ID_DILATE, ID_DILATE)));
-        Imgproc.erode(idmat, idmat, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(ID_ERODE, ID_ERODE)));
-        //draw black lines for floodfill
-        Scalar s = new Scalar(0, 0, 0);
-        Core.line(idmat, new Point(0, 0), new Point(idphoto.getWidth(),0), s,  (ID_LINES_SIZE));
-        Core.line(idmat, new Point(0,idphoto.getHeight()-1), new Point(idphoto.getWidth(),idphoto.getHeight()-1), s,  (ID_LINES_SIZE));
-        Utils.matToBitmap(idmat,idphoto);
-
-        //fill with white
-        try {
-
-             floodFill(idphoto, new Point(0, 0), Color.BLACK, Color.WHITE);
-
-        } catch (Exception e) {
-
-        }
-        //bigger
-        idphoto = Bitmap.createScaledBitmap(idphoto, (idphoto.getWidth() * ID_PICTURE_SIZE), (idphoto.getHeight() * ID_PICTURE_SIZE), false);
-        //for check
-        saveToInternalSorage(idphoto,"idsendedtoocr.png");
-    }
 
     SharedPreferences prefs;
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -1001,13 +910,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ImageButton itwo = (ImageButton) findViewById(R.id.imageButton2);
         ione.setVisibility(View.VISIBLE);
         itwo.setVisibility(View.VISIBLE);
-        Button five = (Button) findViewById(R.id.button5);
-        five.setVisibility(View.VISIBLE);
         Button six = (Button) findViewById(R.id.button6);
         six.setVisibility(View.VISIBLE);
     }
 
-    EditText editpicsize, editpredilate, editpreerode, editdilate, editerode, editnumofcandidates,editlinesgap, editlinesfounddrawsize, editlowergapremove, edithighergapremove, editlowertotalremove, edithighertotalremove,editocrpicsize,editidlinessize,editiddilate,editiderode,editidpicsize;
+    EditText editpicsize, editpredilate, editpreerode, editdilate, editerode, editnumofcandidates,editlinesgap, editlinesfounddrawsize, editlowergapremove, edithighergapremove, editlowertotalremove, edithighertotalremove;
 
     private void openalertsettings() {
 
@@ -1236,69 +1143,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         edithighertotalremove.setHintTextColor(Color.parseColor("#32FFFFFF"));
         edithighertotalremove.setHint(Integer.toString(CLEAN_HIGHER_TOTAL_PIXEL_PRECENTAGE) + "%");
 
-        TextView ocrpicsize = new TextView(this);
-        ocrpicsize.setGravity(Gravity.CENTER);
-        ocrpicsize.setTextColor(Color.WHITE);
 
 
-        editocrpicsize = new EditText(this);
-        editocrpicsize.setGravity(Gravity.CENTER);
-        editocrpicsize.setTextColor(Color.parseColor("#FFFFFF"));
-        editocrpicsize.setHintTextColor(Color.parseColor("#32FFFFFF"));
-        editocrpicsize.setHint(Integer.toString(OCR_PICTURE_SIZE));
-
-        //id settings
-        TextView id_settings = new TextView(this);
-        id_settings.setGravity(Gravity.CENTER);
-        id_settings.setTextColor(Color.WHITE);
-
-        id_settings.setBackgroundColor(Color.GRAY);
-        size=id_settings.getTextSize();
-        id_settings.setTextSize(TypedValue.COMPLEX_UNIT_PX, size + 15);
-
-        TextView idlinessize = new TextView(this);
-        idlinessize.setGravity(Gravity.CENTER);
-        idlinessize.setTextColor(Color.WHITE);
-
-
-        editidlinessize = new EditText(this);
-        editidlinessize.setGravity(Gravity.CENTER);
-        editidlinessize.setTextColor(Color.parseColor("#FFFFFF"));
-        editidlinessize.setHintTextColor(Color.parseColor("#32FFFFFF"));
-        editidlinessize.setHint(Integer.toString(ID_LINES_SIZE));
-
-        TextView iddilate = new TextView(this);
-        iddilate.setGravity(Gravity.CENTER);
-        iddilate.setTextColor(Color.WHITE);
-
-
-        editiddilate = new EditText(this);
-        editiddilate.setGravity(Gravity.CENTER);
-        editiddilate.setTextColor(Color.parseColor("#FFFFFF"));
-        editiddilate.setHintTextColor(Color.parseColor("#32FFFFFF"));
-        editiddilate.setHint(Float.toString(ID_DILATE));
-
-        TextView iderode = new TextView(this);
-        iderode.setGravity(Gravity.CENTER);
-        iderode.setTextColor(Color.WHITE);
-
-
-        editiderode = new EditText(this);
-        editiderode.setGravity(Gravity.CENTER);
-        editiderode.setTextColor(Color.parseColor("#FFFFFF"));
-        editiderode.setHintTextColor(Color.parseColor("#32FFFFFF"));
-        editiderode.setHint(Float.toString(ID_ERODE));
-
-        TextView idpicsize = new TextView(this);
-        idpicsize.setGravity(Gravity.CENTER);
-        idpicsize.setTextColor(Color.WHITE);
-
-
-        editidpicsize = new EditText(this);
-        editidpicsize.setGravity(Gravity.CENTER);
-        editidpicsize.setTextColor(Color.parseColor("#FFFFFF"));
-        editidpicsize.setHintTextColor(Color.parseColor("#32FFFFFF"));
-        editidpicsize.setHint(Integer.toString(ID_PICTURE_SIZE));
 
         //set all strings for this alert
         String negetiveb = null,positiveb = null;
@@ -1320,13 +1166,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 highergapremove.setText(R.string.eng_maxgapprec);
                 lowertotalremove.setText(R.string.eng_minpixelprec);
                 highertotalremove.setText(R.string.eng_maxpixelprec);
-                ocrpicsize.setText(R.string.eng_ocrpicsize);
-                idlinessize.setText(R.string.eng_idlinessize);
-                iddilate.setText(R.string.eng_dilate);
-                iderode.setText(R.string.eng_erode);
-                idpicsize.setText(R.string.eng_ocrpicsize);
-                //id
-                id_settings.setText(R.string.eng_idsettings);
 
                 negetiveb = getResources().getString(R.string.eng_restoredefault);
                 positiveb = getResources().getString(R.string.eng_savesetting);
@@ -1350,13 +1189,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 highergapremove.setText(R.string.heb_maxgapprec);
                 lowertotalremove.setText(R.string.heb_minpixelprec);
                 highertotalremove.setText(R.string.heb_maxpixelprec);
-                ocrpicsize.setText(R.string.heb_ocrpicsize);
-                idlinessize.setText(R.string.heb_idlinessize);
-                iddilate.setText(R.string.heb_dilate);
-                iderode.setText(R.string.heb_erode);
-                idpicsize.setText(R.string.heb_ocrpicsize);
-                //id
-                id_settings.setText(R.string.heb_idsettings);
 
                 negetiveb = getResources().getString(R.string.heb_restoredefault);
                 positiveb = getResources().getString(R.string.heb_savesetting);
@@ -1380,13 +1212,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 highergapremove.setText(R.string.rus_maxgapprec);
                 lowertotalremove.setText(R.string.rus_minpixelprec);
                 highertotalremove.setText(R.string.rus_maxpixelprec);
-                ocrpicsize.setText(R.string.rus_ocrpicsize);
-                idlinessize.setText(R.string.rus_idlinessize);
-                iddilate.setText(R.string.rus_dilate);
-                iderode.setText(R.string.rus_erode);
-                idpicsize.setText(R.string.rus_ocrpicsize);
-                //id
-                id_settings.setText(R.string.rus_idsettings);
 
                 negetiveb = getResources().getString(R.string.rus_restoredefault);
                 positiveb = getResources().getString(R.string.rus_savesetting);
@@ -1424,17 +1249,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ll.addView(editlowertotalremove);
         ll.addView(highertotalremove);
         ll.addView(edithighertotalremove);
-        ll.addView(ocrpicsize);
-        ll.addView(editocrpicsize);
-        ll.addView(id_settings);
-        ll.addView(idlinessize);
-        ll.addView(editidlinessize);
-        ll.addView(iddilate);
-        ll.addView(editiddilate);
-        ll.addView(iderode);
-        ll.addView(editiderode);
-        ll.addView(idpicsize);
-        ll.addView(editidpicsize);
+
 
         //ScrollView sv = new ScrollView(this);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -1499,26 +1314,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
                 try {
                     CLEAN_HIGHER_TOTAL_PIXEL_PRECENTAGE = Integer.parseInt(edithighertotalremove.getText().toString());
-                } catch (Exception e) {
-                }
-                try {
-                    OCR_PICTURE_SIZE = Integer.parseInt(editocrpicsize.getText().toString());
-                } catch (Exception e) {
-                }
-                try {
-                    ID_LINES_SIZE = Integer.parseInt(editidlinessize.getText().toString());
-                } catch (Exception e) {
-                }
-                try {
-                    ID_DILATE = Float.parseFloat(editiddilate.getText().toString());
-                } catch (Exception e) {
-                }
-                try {
-                    ID_ERODE = Float.parseFloat(editiderode.getText().toString());
-                } catch (Exception e) {
-                }
-                try {
-                    ID_PICTURE_SIZE = Integer.parseInt(editidpicsize.getText().toString());
                 } catch (Exception e) {
                 }
 
@@ -1608,30 +1403,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         highertotalremoveeditor.putInt("savedhighertotalremove", CLEAN_HIGHER_TOTAL_PIXEL_PRECENTAGE);
         highertotalremoveeditor.commit();
 
-        prefs = getApplicationContext().getSharedPreferences("ocrpicsize", 1);
-        SharedPreferences.Editor ocrpicsizeeditor = prefs.edit();
-        ocrpicsizeeditor.putInt("savedocrpicsize", OCR_PICTURE_SIZE);
-        ocrpicsizeeditor.commit();
-
-        prefs = getApplicationContext().getSharedPreferences("idlinessize", 1);
-        SharedPreferences.Editor idlinessizeeditor = prefs.edit();
-        idlinessizeeditor.putInt("savedidlinessize", ID_LINES_SIZE);
-        idlinessizeeditor.commit();
-
-        prefs = getApplicationContext().getSharedPreferences("iddilate", 1);
-        SharedPreferences.Editor iddilateeditor = prefs.edit();
-        iddilateeditor.putFloat("savediddilate", ID_DILATE);
-        iddilateeditor.commit();
-
-        prefs = getApplicationContext().getSharedPreferences("iderode", 1);
-        SharedPreferences.Editor iderodeeditor = prefs.edit();
-        iderodeeditor.putFloat("savediderode", ID_ERODE);
-        iderodeeditor.commit();
-
-        prefs = getApplicationContext().getSharedPreferences("idpicsize", 1);
-        SharedPreferences.Editor idpicsizeeditor = prefs.edit();
-        idpicsizeeditor.putInt("savedidpicsize", ID_PICTURE_SIZE);
-        idpicsizeeditor.commit();
     }
 
     private void sendOCRtoread(String phonenumber) {
@@ -1648,15 +1419,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         recognizedText = baseApi.getUTF8Text();
         baseApi.end();
 
-        //read id pic
-        TessBaseAPI baseApi2 = new TessBaseAPI();
-        baseApi2.init(DATA_PATH, "eng", 3);
-        baseApi2.setImage(idphoto);
-        String idtextfound = baseApi2.getUTF8Text();
-        baseApi2.end();
-        //if id too long dont write it
-        if(idtextfound.length()>9)
-            idtextfound="";
+
         //send sms
         Calendar c = Calendar.getInstance();
 
@@ -1668,22 +1431,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String minute = Integer.toString(c.get(Calendar.MINUTE));
         String second = Integer.toString(c.get(Calendar.SECOND));
         //editlanguage string
-        String meteridstring = null,datestring = null,execttimestring = null,ocroutputstring = null;
+        String datestring = null,execttimestring = null,ocroutputstring = null;
         switch (language){
             case 1:
-                meteridstring=getResources().getString(R.string.eng_sms_meterid);
                 datestring=getResources().getString(R.string.eng_sms_date);
                 execttimestring=getResources().getString(R.string.eng_sms_sent);
                 ocroutputstring=getResources().getString(R.string.eng_sms_whatreaded);
                 break;
             case 2:
-                meteridstring=getResources().getString(R.string.heb_sms_meterid);
                 datestring=getResources().getString(R.string.heb_sms_date);
                 execttimestring=getResources().getString(R.string.heb_sms_sent);
                 ocroutputstring=getResources().getString(R.string.heb_sms_whatreaded);
                 break;
             case 3:
-                meteridstring=getResources().getString(R.string.rus_sms_meterid);
                 datestring=getResources().getString(R.string.rus_sms_date);
                 execttimestring=getResources().getString(R.string.rus_sms_sent);
                 ocroutputstring=getResources().getString(R.string.rus_sms_whatreaded);
@@ -1692,12 +1452,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             default:
         }
         //before joining all parts
-        String watermeterid=meteridstring+" "+idtextfound;
         String fulldate=datestring+" "+day+"/"+month+"/"+year;
         String execttime=execttimestring+" "+hour+":"+minute+":"+second;
         String readed=ocroutputstring+" "+recognizedText;
 
-        String sendedsms =watermeterid+"\n"+fulldate+"\n"+execttime+"\n"+readed;
+        String sendedsms =fulldate+"\n"+execttime+"\n"+readed;
 
         sendSMS(phonenumber, sendedsms);
     }
@@ -1786,7 +1545,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             //rotate
             int heightneedtoadd = cameraphoto.getHeight();
             cameraphoto = RotateBitmap(original, (float) finalangle * -1);
-            idphoto = RotateBitmap(idphoto, (float) finalangle * -1);
             heightneedtoadd = cameraphoto.getHeight() - heightneedtoadd;
 
             //canny again
