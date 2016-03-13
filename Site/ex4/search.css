@@ -1,0 +1,27 @@
+body { text-align: center;
+margin-left: 40%;
+margin-right: 40%;
+margin-top: 20%;
+ }
+     /* center all items within body, this property is inherited */
+body > * { text-align: left; }
+     /* left-align the CONTENTS all items within body, additionally
+        you can add this text-align: left property to all elements
+        manually */
+form { display: inline-block;
+	margin-left: 10%;
+	color: rgb(255,255,255);
+
+       }
+legend{
+color: rgb(255,255,255);
+}
+     /* reduces the width of the form to only what is necessary */
+
+html { 
+        background: url('http://www.wallhd4.com/wp-content/uploads/2015/04/cool-colors-hd-24.jpeg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}

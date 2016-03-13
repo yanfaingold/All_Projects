@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+
+{ margin: 0; padding: 0; }
+
+html { 
+        background: url('http://cs.ash-college.ac.il/~yanfaingol/ex3/background.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+
+</style>
+<audio id="clicked1" src="http://cs.ash-college.ac.il/~yanfaingol/ex3/click.mp3" preload="auto"></audio>
+
+<audio id="clicked2" src="http://cs.ash-college.ac.il/~yanfaingol/ex3/click.mp3" preload="auto"></audio>
+
+<audio id="clap" src="http://cs.ash-college.ac.il/~yanfaingol/ex3/clapping.mp3" preload="auto"></audio>
+
+<audio id="fail" src="http://cs.ash-college.ac.il/~yanfaingol/ex3/failed.mp3" preload="auto"></audio>
+
+<audio id="resetsound" src="http://cs.ash-college.ac.il/~yanfaingol/ex3/resetsoundeffect.mp3" preload="auto"></audio>
+<p id="demo"></p>
+<canvas id="canvas">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+  (function() {
+	var width= getWidth();
+function getWidth() {
+  if (self.innerHeight) {
+    return self.innerWidth;
+  }
+
+  if (document.documentElement && document.documentElement.clientHeight) {
+    return document.documentElement.clientWidth;
+  }
+
+  if (document.body) {
+    return document.body.clientWidth;
+  }
+}
+	var height=getHeight();
+function getHeight() {
+  if (self.innerHeight) {
+    return self.innerHeight;
+  }
+
+  if (document.documentElement && document.documentElement.clientHeight) {
+    return document.documentElement.clientHeight;
+  }
+
+  if (document.body) {
+    return document.body.clientHeight;
+  }
+}
+        var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d');
+
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+        
+        function resizeCanvas() {
+                canvas.width = width;
+                canvas.height = height;
+                
+                /**
+                 * Your drawings need to be inside this function otherwise they will be reset when 
+                 * you resize the browser window and the canvas goes will be cleared.
+                 */
+                drawStuff(); 
+        }
+        resizeCanvas();
+        
+        function drawStuff() {
+                // do your drawing stuff here
+	var whichclick=0;
+	var endgame=0;
+	var xoro=1;
+	var position = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+//listen to clicked area
+
+	canvas.addEventListener("click", getClickPosition, false);
+//get x and y
+
+
+//images
+	var resettext= new Image()
+	resettext.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/howtoreset.png';
+
+	var tip= new Image()
+	tip.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/tipecs.png';
+
+	var xwin= new Image()
+	xwin.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/xwins.png';
+
+	var owin= new Image()
+	owin.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/owins.png';
+
+	var itsadraw= new Image()
+	itsadraw.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/draw.png';
+
+	var drawboardimg= new Image()
+	drawboardimg.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/board.png';
+	
+	var xpng= new Image()
+	xpng.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/x.png';
+	xpng.id = "ximg";
+
+	var opng= new Image()
+	opng.src='http://cs.ash-college.ac.il/~yanfaingol/ex3/o.png';
+	opng.id = "oimg";
+
+resettext.onload=function(){
+context.drawImage(resettext, width/3-resettext.width+tip.width, height/2-tip.height);
+}
+
+tip.onload=function(){
+context.drawImage(tip, width/3, height/2);
+}
+
+drawboardimg.onload=function(){
+context.drawImage(drawboardimg, width/2-drawboardimg.width/2, height/2-drawboardimg.height/2);
+opng.width="drawboardimg.width/3";
+}
+
+
+//get clicks and put pics
+function getClickPosition(e) {
+    var xPosition = e.clientX;
+    var yPosition = e.clientY;
+
+//reset page at end or use tipecs
+if(endgame!=0 || xPosition>=width/3+width*0.005 && xPosition<=width/3+tip.width+width*0.0045 && yPosition>=height/2+height*0.018 && yPosition<=height/2+tip.height+height*0.015){
+//sound for tipecs
+if(endgame==0)
+document.getElementById('resetsound').play();
+//reset musics
+document.getElementById('clap').pause();
+document.getElementById('clap').currentTime = 0;
+document.getElementById('fail').pause();
+document.getElementById('fail').currentTime = 0;
+//clear all pictures from canvas
+context.clearRect ( 0 , 0 , canvas.width, canvas.height );
+//redraw start pics
+context.drawImage(resettext, width/3-resettext.width+tip.width, height/2-tip.height);
+context.drawImage(tip, width/3, height/2);
+context.drawImage(drawboardimg, width/2-drawboardimg.width/2, height/2-drawboardimg.height/2);
+endgame=0;
+dontdraw=0;
+whichclick=0;
+xoro=1;
+for(i=0;i<position.length;i++)
+	position[i]=0;
+}
+
+
+
+//inside the width and height of the board
+if(xPosition>=width/2-drawboardimg.width/2 && xPosition<=width/2-drawboardimg.width/2+drawboardimg.width){
+if(yPosition>=height/2-drawboardimg.height/2 && yPosition<=height/2-drawboardimg.height/2+drawboardimg.height){
+//get position of click on board to draw
+var tempx=parseInt((xPosition-(width/2-drawboardimg.width/2))/(drawboardimg.width/3));
+var tempy=parseInt((yPosition-(height/2-drawboardimg.height/2))/(drawboardimg.height/3));
+var dontdraw=0;
+
+//sound
+if(position[tempx+tempy*3]==0){
+if(whichclick==0){
+document.getElementById('clicked1').play();
+whichclick=1;
+}
+else{
+document.getElementById('clicked2').play();
+whichclick=0;
+}
+}
+
+
+if(position[tempx+tempy*3]==0 && endgame==0)
+position[tempx+tempy*3]=xoro;
+else{
+xoro*=-1;
+dontdraw=1;
+}
+//document.getElementById("demo").innerHTML = tempx+tempy*3;
+ }
+}
+if(dontdraw==0 && endgame==0){
+  //draw o and x
+if(xoro==1)
+	context.drawImage(xpng, ((tempx+tempy*3)%3)*drawboardimg.width/3+(width/2-drawboardimg.width/2), parseInt((tempx+tempy*3)/3)*drawboardimg.height/3+height/2-drawboardimg.height/2);
+else
+	context.drawImage(opng, ((tempx+tempy*3)%3)*drawboardimg.width/3+width/2-drawboardimg.width/2, parseInt((tempx+tempy*3)/3)*drawboardimg.height/3+height/2-drawboardimg.height/2);
+}
+//no one wins
+if(position[0]!=0 && position[1]!=0 && position[2]!=0 && position[3]!=0 && position[4]!=0 && position[5]!=0 && position[6]!=0 && position[7]!=0 && position[8]!=0)
+endgame=3;
+//win of x
+if(position[0]==1 && position[1]==1 && position[2]==1 || position[3]==1 && position[4]==1 && position[5]==1 || position[6]==1 && position[7]==1 && position[8]==1 || position[0]==1 && position[3]==1 && position[6]==1 || position[1]==1 && position[4]==1 && position[7]==1 || position[2]==1 && position[5]==1 && position[8]==1 || position[0]==1 && position[4]==1 && position[8]==1 || position[2]==1 && position[4]==1 && position[6]==1)
+endgame=1;
+//win of o
+if(position[0]==-1 && position[1]==-1 && position[2]==-1 || position[3]==-1 && position[4]==-1 && position[5]==-1 || position[6]==-1 && position[7]==-1 && position[8]==-1 || position[0]==-1 && position[3]==-1 && position[6]==-1 || position[1]==-1 && position[4]==-1 && position[7]==-1 || position[2]==-1 && position[5]==-1 && position[8]==-1 || position[0]==-1 && position[4]==-1 && position[8]==-1 || position[2]==-1 && position[4]==-1 && position[6]==-1)
+endgame=2;
+
+//draw end
+if(endgame==1)
+	context.drawImage(xwin, width/2-xwin.width/2, height/4-xwin.height/2);
+
+if(endgame==2)
+	context.drawImage(owin, width/2-owin.width/2, height/4-owin.height/2);
+
+if(endgame==3)
+	context.drawImage(itsadraw, width/2-itsadraw.width/2, height/4-itsadraw.height/2);
+if(endgame==1 || endgame==2)
+document.getElementById('clap').play();
+if(endgame==3)
+document.getElementById('fail').play();
+if(xPosition>=width/2-drawboardimg.width/2 && xPosition<=width/2-drawboardimg.width/2+drawboardimg.width)
+if(yPosition>=height/2-drawboardimg.height/2 && yPosition<=height/2-drawboardimg.height/2+drawboardimg.height)
+xoro*=-1;
+
+
+} 
+     
+        }
+})();
+
+</script>
+
+</body>
+</html>

@@ -62,3 +62,11 @@ all the -jar projects have an executable jar file you can double click to lunch,
 - brief task summery = use django as backend server to save questions,ids and use ionic to read the data from the server and display it in clickable buttons, if clicked display question and id data.
 
 - in depth explanation = set server data using rest framework and allow reading the data(displayed data in JSON) , using angular and ionic to read the data from the server and input it into buttons , click on button display the clicked data.
+
+
+----------
+
+**Site**
+-------------
+
+link = http://cs.ash-college.ac.il/~yanfaingol/
