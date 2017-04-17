@@ -8,7 +8,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - its a basic site that have register user option ,all registered users saved in the MySql database on registration
 
-- usage of Spring, Hibernate, Velocity, MySql, Ajax.
+- usage of Tomcat, Maven, Spring, Hibernate, Velocity, MySql, Ajax.
 
 ----------
 
