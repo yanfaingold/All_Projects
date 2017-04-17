@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Yan site</title>
+</head>
+<body>
+<div>
+##    #parse("/WEB-INF/fragments/header.vm")
+</div>
+<div>
+    $screen_content
+</div>
+</body>
+</html>

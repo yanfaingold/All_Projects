@@ -1,0 +1,17 @@
+#set($location="index")
+<html>
+<head>
+    #parse("/WEB-INF/classes/templates/js/scripts_local.vm")
+</head>
+
+<body>
+<div style="text-align: center;margin-top: 10px;padding: 6px;"><h1>Register User</h1></div>
+<table align="center" style="margin-top: 50px;border-style: ridge;border-width:5px;border-color: gainsboro">
+    <tr><td>user name : </td><td> <input type="text" id="userName"><br/></td></tr>
+    <tr><td>Password : </td><td> <input type="password" id="password"><br/></td></tr>
+    <tr align="center"><td colspan="2"><input type="button" value="Register" onclick="register()"><br/></td></tr>
+    <tr><td colspan="2"><div id="info" style="text-align: center;"></div></td></tr>
+</table>
+<div style="text-align: center;margin-top: 10px;"><a href="/AllUsers">Show All Users</a></div>
+</body>
+</html>
