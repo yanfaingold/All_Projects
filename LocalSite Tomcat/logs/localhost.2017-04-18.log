@@ -1,0 +1,70 @@
+18-Apr-2017 11:51:46.451 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 11:51:46.451 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 11:53:21.797 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 11:53:21.797 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 11:57:10.291 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 11:57:10.291 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 11:57:10.385 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+18-Apr-2017 11:57:10.385 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+18-Apr-2017 11:57:22.774 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 11:57:22.774 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 12:49:48.844 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 12:49:48.844 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:14:57.437 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:14:57.437 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:15:58.873 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:15:58.873 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:22:42.596 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:22:42.596 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:23:18.976 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:23:18.977 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:24:45.215 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:24:45.215 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:25:25.284 INFO [http-nio-80-exec-9] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@14c3709]
+18-Apr-2017 13:25:25.340 INFO [http-nio-80-exec-9] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:25:25.793 INFO [http-nio-80-exec-9] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:27:15.878 INFO [http-nio-80-exec-5] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+18-Apr-2017 13:27:15.878 INFO [http-nio-80-exec-5] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+18-Apr-2017 13:28:05.787 INFO [http-nio-80-exec-13] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:28:05.809 INFO [http-nio-80-exec-13] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:28:15.544 INFO [http-nio-80-exec-18] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@1011de5]
+18-Apr-2017 13:28:15.598 INFO [http-nio-80-exec-18] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:28:16.051 INFO [http-nio-80-exec-18] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:03.070 INFO [http-nio-80-exec-2] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:03.094 INFO [http-nio-80-exec-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:29:08.287 INFO [http-nio-80-exec-14] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@16cfb8a]
+18-Apr-2017 13:29:08.341 INFO [http-nio-80-exec-14] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:29:08.816 INFO [http-nio-80-exec-14] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:13.760 INFO [http-nio-80-exec-17] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:13.779 INFO [http-nio-80-exec-17] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:29:15.436 INFO [http-nio-80-exec-17] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@ad5580]
+18-Apr-2017 13:29:15.497 INFO [http-nio-80-exec-17] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:29:15.956 INFO [http-nio-80-exec-17] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:18.821 INFO [http-nio-80-exec-23] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:29:18.838 INFO [http-nio-80-exec-23] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:30:17.546 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@aa7721]
+18-Apr-2017 13:30:17.592 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:30:18.030 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:30:27.722 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@daa08a]
+18-Apr-2017 13:30:27.785 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:30:28.281 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:30:31.224 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+18-Apr-2017 13:30:31.224 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+18-Apr-2017 13:30:32.859 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@c6a9e9]
+18-Apr-2017 13:30:32.911 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:30:33.326 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:30:43.961 INFO [http-nio-80-exec-6] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:30:43.979 INFO [http-nio-80-exec-6] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:30:48.943 INFO [http-nio-80-exec-3] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+18-Apr-2017 13:30:48.943 INFO [http-nio-80-exec-3] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+18-Apr-2017 13:35:10.713 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@1c67cbf]
+18-Apr-2017 13:35:10.777 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:35:11.261 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:35:15.868 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@1652be]
+18-Apr-2017 13:35:15.925 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:35:16.383 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:35:33.713 INFO [http-nio-80-exec-6] org.apache.catalina.core.ApplicationContext.log Destroying Spring FrameworkServlet 'dispatcher'
+18-Apr-2017 13:35:33.730 INFO [http-nio-80-exec-6] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Apr-2017 13:36:15.733 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Spring WebApplicationInitializers detected on classpath: [com.yan.config.Webinit@fa8c5d]
+18-Apr-2017 13:36:15.796 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Apr-2017 13:36:16.264 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring FrameworkServlet 'dispatcher'
