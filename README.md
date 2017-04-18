@@ -6,7 +6,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 **LocalSite Tomcat**
 -------------
 
-- its a basic site that have register user option ,all registered users saved in the MySql database on registration, it uses Mysql username:root password:6780044 and a scheme called test(can be changed in the DataaseConfig class)
+- its a basic site that have register user option ,all registered users saved in the MySql database on registration, it uses Mysql username:root password:6780044 and a scheme called test(can be changed in the DatabaseConfig class)
 
 - usage of Tomcat, Maven, Spring, Hibernate, Velocity, MySql, Ajax.
 
