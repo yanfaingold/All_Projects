@@ -6,7 +6,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 **LocalSite Tomcat**
 -------------
 
-- youtube demo = https://youtu.be/uI8jKAp0Lok
+- youtube demo = https://youtu.be/bJxNQEKkXhU
 
 - its a basic site that have register user option ,all registered users saved in the MySql database on registration, it uses Mysql username:root password:6780044 and a scheme called test(can be changed in the DatabaseConfig class)
 
