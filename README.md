@@ -3,6 +3,17 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 ----------
 
+**Basic NodeJS**
+-------------
+
+- youtube demo = https://youtu.be/aTuZ1FnKReQ
+
+- basic register user and password to mongoDB.
+
+- using AngularJS, NodeJS, MongoDB, Express and bootstrap css.
+
+----------
+
 **LocalSite Tomcat**
 -------------
 

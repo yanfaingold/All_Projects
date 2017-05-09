@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<style type="text/css">
+	.table th {
+   text-align: center;   
+}
+	#bodyData td {
+   text-align: center;   
+}
+</style>
+	<title>User list</title>
+</head>
+<body>
+<div class="container" ng-controller="AppCtrl">
+<div class = "page-header">
+<h1 align="center">User list</h1>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>name</th>
+			<th>password</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><input class="form-control" ng-model="user.name"></td>
+		<td><input class="form-control" ng-model="user.password"></td>
+		<td style="text-align: center;"><button class="btn btn-primary" ng-click="addUser()">Add User</td>
+	</tr>
+
+		<tr ng-repeat="user in users" id="bodyData">
+			<td>{{user.name}}</td>
+			<td>{{user.password}}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="controllers/controller.js"></script>
+</body>
+</html>
