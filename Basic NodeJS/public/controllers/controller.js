@@ -1,7 +1,7 @@
 
 var myApp = angular.module('myApp', []);
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
-    console.log("Hello World from controller");
+myApp.controller('AppCtrl', ['$scope', '$http','$log', function($scope, $http, $log) {
+    $log.info("Hello World from controller ");
 
     var refresh = function(){
 	$http.get('/userlist').then(doneCallbacks, failCallbacks);
@@ -9,24 +9,24 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	refresh();
 
 	 function doneCallbacks(res) {
-	  console.log("Data received");
+	  $log.info("Data received");
 	  $scope.users = res.data;
 	 }
 
 	 function failCallbacks(err) {
-	  console.log(err.message);
+	  $log.error(err.message);
 	 }
 
 	 $scope.addUser = function(){
-	 	console.log($scope.user);
+	 	$log.log($scope.user);
 	 	$http.post('/userlist',$scope.user).then(donePostCallbacks);
 	 }
 	 function donePostCallbacks(res) {
-	  console.log(res);
+	  $log.log(res);
 	  refresh();
 	 }
 
 	 function failPostCallbacks(err) {
-	  console.log(err.message);
+	  $log.error(err.message);
 	 }
 }]);﻿
