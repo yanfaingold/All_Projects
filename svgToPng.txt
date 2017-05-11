@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">@import url('http://fonts.googleapis.com/css?family=Pacifico|Droid+Serif');</style>
+    <style>
+        #svgfaingold {
+            font-family: Pacifico;
+        }
+        #svgyan {
+            font-family: Droid Serif;
+        }
+
+        body > h1 {
+            visibility: hidden;
+        }
+
+        @media only screen and (max-width: 500px) {
+            #svgfaingold {
+                font-family: Droid Serif;
+            }
+            #svgyan {
+            font-family: Pacifico;
+        	}
+
+            circle {
+                fill: azure;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<h1 id="pngText">Png:</h1>
+<div id="svgContainer" width="100px"></div>
+<button onclick="svgToPng()">Create png</button>
+<div>
+    <h1>Svg:</h1>
+    <svg id="svgID" width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/>
+        <text x="0" y="15" fill="black" id=svgyan>Yan</text>
+        <text x="15" y="45" fill="black" style="fill: red;" id=svgfaingold>Faingold</text>
+    </svg>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function svgToPng() {
+        var deletedElements = new Array();
+        var style = $("#svgID").getStyleObject();
+        var svgClone = $("#svgID").clone().css(style);
+        var currentChild;
+        for (var i = svgClone[0].childNodes.length - 1; i >= 0; i--) {
+            try {
+                currentChild = svgClone[0].childNodes[i];
+                var childStyle = $($('#svgID')[0].childNodes[i]).getStyleObject();
+                //remove texts from copy
+                if (currentChild.tagName == "text" && currentChild.innerHTML != undefined && currentChild.innerHTML.length > 0) {
+                    deletedElements.push(currentChild);
+                    svgClone[0].removeChild(currentChild);
+                }
+                $(currentChild).css(childStyle);
+
+            } catch (err) {
+            }
+        }
+
+        var svgData = (new XMLSerializer()).serializeToString(svgClone[0]);
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext("2d");
+        ctx.canvas.width = svgClone.width();
+        ctx.canvas.height = svgClone.height();
+        var DOMURL = self.URL || self.webkitURL || self;
+        var img = new Image();
+        var svg = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
+        var url = DOMURL.createObjectURL(svg);
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+            for (i = 0; i < deletedElements.length; i++) {
+                svgTextIntoCanvas(ctx, deletedElements[i]);
+            }
+            var png = canvas.toDataURL("image/png");
+            document.querySelector('#svgContainer').innerHTML = '<img src="' + png + '"/>';
+            DOMURL.revokeObjectURL(png);
+        };
+        img.src = url;
+        $("#pngText").css('visibility', 'visible');
+        ;
+    }
+
+    function svgTextIntoCanvas(ctx, element) {
+        var x = 0;
+        var y = 0;
+        for (i = 0; i < element.attributes.length; i++) {
+            switch (element.attributes[i].nodeName) {
+                case 'x':
+                    x = element.getAttribute('x');
+                    break;
+                case 'y':
+                    y = element.getAttribute('y');
+                    break;
+                default:
+
+            }
+        }
+        ctx.font = $(element).css('font-size') + " " + $(element).css('font-family');
+        ctx.fillStyle = $(element).css('fill');
+        ctx.fillText(element.innerHTML, x, y);
+    }
+
+    (function ($) {
+        $.fn.getStyleObject = function () {
+            var dom = this.get(0);
+            var style;
+            var returns = {};
+            if (window.getComputedStyle) {
+                var camelize = function (a, b) {
+                    return b.toUpperCase();
+                }
+                style = window.getComputedStyle(dom, null);
+                for (var i = 0; i < style.length; i++) {
+                    var prop = style[i];
+                    var camel = prop.replace(/\-([a-z])/g, camelize);
+                    var val = style.getPropertyValue(prop);
+                    returns[camel] = val;
+                }
+                return returns;
+            }
+            if (dom.currentStyle) {
+                style = dom.currentStyle;
+                for (var prop in style) {
+                    returns[prop] = style[prop];
+                }
+                return returns;
+            }
+            return this.css();
+        }
+    })(jQuery);
+</script>
+</body>
+</html>

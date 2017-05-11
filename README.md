@@ -25,6 +25,17 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 ----------
 
+**svgToPng**
+-------------
+
+- youtube demo = https://youtu.be/HDeP3LNpTns
+
+- convert svg to png in javascript while holding all css changed of the svg and the font chosen with @media changed.
+
+- to make the font work had to input svg text data into canvas data only so removed all text elements and added them in canvas plus basics(text location,font type,fill color) so transform or other changes on text need to be added.
+
+----------
+
 **WaterMeterReader**
 -------------
 
