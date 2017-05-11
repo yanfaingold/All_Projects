@@ -30,9 +30,9 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - youtube demo = https://youtu.be/HDeP3LNpTns
 
-- convert svg to png in javascript while holding all css changed of the svg and the font chosen with @media changed.
+- convert svg to png in javascript while holding all css changes of the svg and the font chosen, works with @media changes.
 
-- to make the font work had to input svg text data into canvas data only so removed all text elements and added them in canvas plus basics(text location,font type,fill color) so transform or other changes on text need to be added.
+- to make custom fonts work had to input svg text data into canvas data so i removed all the text elements and added them in the canvas(added only: text location, font type, fill color. so transform or other changes on text need to be added to work).
 
 ----------
 
