@@ -3,12 +3,21 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 ----------
 
+**My Own Site**
+-------------
+
+- link = http://yanfaingold.servebeer.com
+
+- summery = using Basic NodeJS project i created listeners for both port 80 and 443 when 80 redirects to 443 which is https , created free certificate with lets ecrypt(now called certbot) and free hostname with free dns mapping on site called No-IP.com
+
+----------
+
 **Basic NodeJS**
 -------------
 
 - youtube demo = https://youtu.be/aTuZ1FnKReQ
 
-- basic register user and password to mongoDB.
+- summery = basic register user and password to mongoDB.
 
 - using AngularJS, NodeJS, MongoDB, Express and bootstrap css.
 
@@ -19,7 +28,7 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - youtube demo = https://youtu.be/bJxNQEKkXhU
 
-- its a basic site that have register user option ,all registered users saved in the MySql database on registration, it uses Mysql username:root password:6780044 and a scheme called test(can be changed in the DatabaseConfig class)
+- summery = its a basic site that have register user option ,all registered users saved in the MySql database on registration, it uses Mysql username:root password:6780044 and a scheme called test(can be changed in the DatabaseConfig class)
 
 - usage of Tomcat, Maven, Spring, Hibernate, Velocity, MySql, Ajax.
 
@@ -96,10 +105,3 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - in depth explanation = set server data using rest framework and allow reading the data(displayed data in JSON) , using angular and ionic to read the data from the server and input it into buttons , click on button display the clicked data.
 
-
-----------
-
-**Site**
--------------
-
-link = http://cs.ash-college.ac.il/~yanfaingol/
