@@ -10,6 +10,10 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - summery = using Basic NodeJS project i created listeners for both port 80 and 443 when 80 redirects to 443 which is https , created free certificate with lets ecrypt(now called certbot) and free hostname with free dns mapping on site called No-IP.com
 
+- added alert and auto ban for continues request spamming
+
+- added register and login which secured meaning any attempt to change cookies will clean them after server request
+
 ----------
 
 **Basic NodeJS**
