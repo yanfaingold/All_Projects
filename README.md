@@ -14,6 +14,8 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 - added register and login which secured meaning any attempt to change cookies will clean them after server request
 
+- added chat that shows users viewing chat page live (if user not in chat page or in different tab or browser sleeping in phone then he wont show in chat list)
+
 ----------
 
 **Basic NodeJS**
