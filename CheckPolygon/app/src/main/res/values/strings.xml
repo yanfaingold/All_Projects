@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Check Polygon</string>
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+        AIzaSyAdo99K1Xo_lcQXRArtYUSWjUgHl5aVmvQ
+    </string>
+</resources>

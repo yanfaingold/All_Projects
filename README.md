@@ -18,6 +18,15 @@ all the -jar projects have an executable jar file you can double click to lunch,
 
 ----------
 
+**checkPolygon**
+-------------
+
+- interview task = create an android app using google maps and upload a kml file polygon that when the user clicks on the map the program knows if it was clicked inside or outside the polygon and if outside show the closest distance to the polygon outline(dont look up or use online solution come up with your own).
+
+- summery = to find if the click was inside or out i simply took a snapshot and checked if the pixel rgb equal the rgb i set pre snapshot, to get the closest outline i took polygon points and added more points between a line in the polygon until the distance was some custom input and then just checked closest point to the click point.
+
+----------
+
 **Basic NodeJS**
 -------------
 
